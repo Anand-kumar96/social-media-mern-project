@@ -3,13 +3,13 @@ import InputEmoji from 'react-input-emoji'
 import { getUser } from '../../api/UserRequest'
 import { addMessage, getMessages } from '../../api/MessageRequest'
 import './ChatBox.css'
-const { format } = require('timeago.js')
+import { format } from 'timeago.js'
 
 const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
   const [userData, setUserData] = useState(null)
   const [messages, setMessages] = useState([])
   const [newMessage, setNewMessage] = useState()
-  const scroll = useRef();
+  const scroll = useRef()
 
   //fetching data for header of chatBox
   useEffect(() => {
@@ -73,9 +73,9 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
   }, [recieveMessage])
 
   //Always scroll to last message....  // find on stack Overflow
-  useEffect(()=>{
-  scroll.current?.scrollIntoView({behavior:'smooth'})
-  },[messages])
+  useEffect(() => {
+    scroll.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [messages])
 
   return (
     <>
@@ -112,17 +112,16 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
             {/* chat box message */}
             <div className="chat-body">
               {messages.map((message, index) => (
-                  <div ref={scroll}
-                    className={
-                      message.senderId === currentUser
-                        ? 'message own'
-                        : 'message'
-                    }
-                    key={index}
-                  >
-                    <span>{message.text}</span>
-                    <span>{format(message.createdAt)}</span>
-                  </div>
+                <div
+                  ref={scroll}
+                  className={
+                    message.senderId === currentUser ? 'message own' : 'message'
+                  }
+                  key={index}
+                >
+                  <span>{message.text}</span>
+                  <span>{format(message.createdAt)}</span>
+                </div>
               ))}
             </div>
 

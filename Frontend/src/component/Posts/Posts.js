@@ -19,7 +19,7 @@ const Posts = () => {
     <div className="posts">
       {loading ? (
         'fetching posts...'
-      ) : posts.length !== 0 ? (
+      ) : posts?.length !== 0 ? (
         posts.map((post, index) => <Post key={index} data={post} id={index} />)
       ) : (
         <div className='no-post'>No posts found ......</div>
