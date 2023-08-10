@@ -32,7 +32,7 @@ const Chat = () => {
 
   //  Connect to Socket.io
   useEffect(() => {
-    socket.current = io('https://socket-io-u826.onrender.com')
+    socket.current = io('https://chat-socket-io-1933.onrender.com')
     socket.current.emit('new-user-add', user._id)
     socket.current.on('get-users', (users) => {
       setOnlineUsers(users)
@@ -55,10 +55,10 @@ const Chat = () => {
     })
   })
   //  for online users
-  const checkOnlineStatus =(chat) =>{
-    const chatMember = chat.members.find((member)=>member!==user._id)
-    const online = onlineUsers.find((user)=>user.userId===chatMember)
-   return online?true:false
+  const checkOnlineStatus = (chat) => {
+    const chatMember = chat.members.find((member) => member !== user._id)
+    const online = onlineUsers.find((user) => user.userId === chatMember)
+    return online ? true : false
   }
   return (
     <div className="Chat">
