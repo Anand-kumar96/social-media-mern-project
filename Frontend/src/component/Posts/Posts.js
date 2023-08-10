@@ -14,7 +14,7 @@ const Posts = () => {
   let { posts, loading } = useSelector((state) => state.postReducer)
  if(!posts) return (<div className="posts">"No posts..!!"</div>)
  if(params.id) posts = posts.filter((post)=>post.userId === params.id)
- console.log(posts)
+//  console.log(posts)
   return (
     <div className="posts">
       {loading ? (
