@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import InputEmoji from 'react-input-emoji'
-import { getUser } from '../../api/UserRequest'
 import { addMessage, getMessages } from '../../api/MessageRequest'
+import { getUser } from '../../api/UserRequest'
 import './ChatBox.css'
+import InputEmoji from 'react-input-emoji'
 import { format } from 'timeago.js'
 
 const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
@@ -12,6 +12,9 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
   const scroll = useRef()
 
   //fetching data for header of chatBox
+  const handleChange = (newMessage) => {
+    setNewMessage(newMessage)
+  }
   useEffect(() => {
     const userId = chat?.members?.find((id) => id !== currentUser)
     const getUserData = async () => {
@@ -40,9 +43,7 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
     }
     if (chat != null) fetchMessages()
   }, [chat])
-  const handleChange = (newMessage) => {
-    setNewMessage(newMessage)
-  }
+
   const handleSend = async (text) => {
     const message = {
       senderId: currentUser,
@@ -66,7 +67,6 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
   }
   // Receive Message from parent component
   useEffect(() => {
-    // console.log('Message Arrived: ', recieveMessage)
     if (recieveMessage !== null && recieveMessage.chatId === chat._id) {
       setMessages([...messages, recieveMessage])
     }
