@@ -1,0 +1,27 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    gap: 1rem;
+}
+.post>img{
+    width: 100%;
+    max-height: 23rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.postReact{
+ display: flex;
+ align-items: flex-start;
+ column-gap: 1.5rem;
+ margin-bottom:-5px;
+
+}
+.postReact> img:hover{
+cursor: pointer;
+}
+.detail{
+    margin-top: -7px;
+}

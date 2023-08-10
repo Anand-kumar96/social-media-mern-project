@@ -1,0 +1,8 @@
+.Home{
+    position: relative;
+    display: grid;
+    margin-left: 5px;
+    margin-right: 5px;
+    grid-template-columns: 22rem auto 20rem;
+    gap:1rem;
+}
