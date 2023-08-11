@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { followUser, unFollowUser } from '../../actions/UserAction'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createChat } from '../../api/ChatRequest'
 const User = ({ person, index }) => {
   const { user } = useSelector((state) => state.authReducer.authData)
   const dispatch = useDispatch()
@@ -14,6 +15,23 @@ const User = ({ person, index }) => {
       : dispatch(followUser(person._id, user))
     setFollowing((prev) => !prev)
   }
+  // for adding chat if anyone follow
+  useEffect(() => {
+    const addChats = async () => {
+      try {
+        const { data } = await createChat({
+          senderId: user._id,
+          receiverId: person._id,
+        })
+        // console.log(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    if (following) {
+      addChats()
+    }
+  }, [following])
   return (
     <div className="follower" key={index}>
       <div>

@@ -5,11 +5,19 @@ exports.createChat = async (req, res) => {
     members: [req.body.senderId, req.body.receiverId],
   })
   try {
-    const result = await newChat.save()
-    res.status(200).json({
-      status: 'success',
-      result,
+    const chat = await ChatModel.findOne({
+      members: { $all: [req.body.senderId, req.body.receiverId] },
     })
+    if (!chat) {
+      const result = await newChat.save()
+      res.status(200).json({
+        status: 'success',
+        result,
+      })
+    } else {
+      console.log('user exists in chat')
+      res.status(200).json('user already exist')
+    }
   } catch (err) {
     res.status(500).json({
       status: 'fail',
@@ -23,6 +31,7 @@ exports.userChats = async (req, res) => {
     const chat = await ChatModel.find({
       members: { $in: [req.params.userId] },
     })
+    console.log(chat)
     res.status(200).json({
       status: 'success',
       chat,
@@ -51,5 +60,3 @@ exports.findChat = async (req, res) => {
     })
   }
 }
-
-
