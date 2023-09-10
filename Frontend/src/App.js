@@ -1,15 +1,18 @@
 import { useSelector } from 'react-redux'
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Auth from './pages/Auth/Auth'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import Chat from './pages/chat/Chat'
 import UserPage from './pages/UserPage'
+import { ToastContainer } from 'react-toastify'
+
 function App() {
   const user = useSelector((state) => state.authReducer.authData)
   return (
-    <div className="App">
+    <div className={`App ${!user && 'auth-login'}`}>
       <div className="blur" style={{ top: '-18%', right: '0' }}></div>
       <div className="blur" style={{ top: '36%', left: '-8rem' }}></div>
       <Routes>
@@ -38,6 +41,7 @@ function App() {
           element={user ? <UserPage /> : <Navigate to={'../auth'} />}
         />
       </Routes>
+      <ToastContainer/>
     </div>
   )
 }

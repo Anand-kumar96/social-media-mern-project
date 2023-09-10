@@ -12,6 +12,7 @@ const postRouter = require('./routes/postRoutes')
 const uploadRouter = require('./routes/uploadRoutes')
 const chatRouter = require('./routes/chatRoutes')
 const messageRouter = require('./routes/messageRoutes')
+const { notFound, errorHandler } = require('./middleware/errorHandler')
 
 const app = express()
 // to serve images for public
@@ -33,11 +34,9 @@ mongoose
   })
   .then(() => console.log('DB connection is established'))
   .catch((err) => {
-    throw err
+    console.log(`Error: ${err.message}`)
+    process.exit(1)
   })
-app.listen(process.env.PORT, () =>
-  console.log(`server is listening.. at port: ${process.env.PORT}`)
-)
 
 //uses of routes
 app.use('/auth', authRouter)
@@ -46,3 +45,10 @@ app.use('/post', postRouter)
 app.use('/upload', uploadRouter)
 app.use('/chat', chatRouter)
 app.use('/message', messageRouter)
+
+// error Handler
+app.use(notFound)
+app.use(errorHandler)
+app.listen(process.env.PORT, () =>
+  console.log(`server is listening.. at port: ${process.env.PORT}`)
+)

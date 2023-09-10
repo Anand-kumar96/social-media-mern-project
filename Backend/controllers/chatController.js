@@ -1,62 +1,55 @@
+const { asyncHandler } = require('../middleware/asyncHandler')
 const ChatModel = require('../models/chatModel')
 
-exports.createChat = async (req, res) => {
+// createChat
+exports.createChat = asyncHandler(async (req, res, next) => {
+  const { senderId, receiverId } = req.body
   const newChat = new ChatModel({
-    members: [req.body.senderId, req.body.receiverId],
+    members: [senderId, receiverId],
   })
-  try {
-    const chat = await ChatModel.findOne({
-      members: { $all: [req.body.senderId, req.body.receiverId] },
+  const chat = await ChatModel.findOne({
+    members: { $all: [senderId, receiverId] },
+  })
+  if (!chat) {
+    const result = await newChat.save()
+    res.status(200).json({
+      status: 'success',
+      result,
     })
-    if (!chat) {
-      const result = await newChat.save()
-      res.status(200).json({
-        status: 'success',
-        result,
-      })
-    } else {
-      console.log('user exists in chat')
-      res.status(200).json('user already exist')
-    }
-  } catch (err) {
-    res.status(500).json({
-      status: 'fail',
-      message: err.message,
+  } else {
+    res.status(200).json({
+      status: 'success',
+      message :'user already exists'
     })
   }
-}
+})
 
-exports.userChats = async (req, res) => {
-  try {
-    const chat = await ChatModel.find({
-      members: { $in: [req.params.userId] },
-    })
-    console.log(chat)
+exports.userChats = asyncHandler(async (req, res, next) => {
+  const chat = await ChatModel.find({
+    members: { $in: [req.params.userId] },
+  })
+  if (chat) {
     res.status(200).json({
       status: 'success',
       chat,
     })
-  } catch (err) {
-    res.status(500).json({
-      status: 'fail',
-      message: err.message,
-    })
+  } else {
+    res.status(404)
+    next(new Error('chat does not exist'))
   }
-}
+})
 
-exports.findChat = async (req, res) => {
-  try {
-    const chat = await ChatModel.findOne({
-      members: { $all: [req.params.firstId, req.params.secondId] },
-    })
+exports.findChat = asyncHandler(async (req, res, next) => {
+  const chat = await ChatModel.findOne({
+    members: { $all: [req.params.firstId, req.params.secondId] },
+  })
+  if (chat) {
     res.status(200).json({
       status: 'success',
       chat,
     })
-  } catch (err) {
-    res.status(500).json({
-      status: 'fail',
-      message: err.message,
-    })
+  } else {
+    res.status(404)
+    next(new Error('chat does not exist'))
   }
-}
+})

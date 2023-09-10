@@ -1,8 +1,10 @@
 import * as UserApi from '../api/UserRequest'
+import { successNotification } from '../utils/notification'
 export const updateUser = (id, formData) => async(dispatch)=> {
  dispatch({ type: 'UPDATE_START' })
  try {
    const {data} = await UserApi.updateUser(id,formData)
+   successNotification('your profile is successfully updated')
    dispatch({ type: 'UPDATE_SUCCESS', data: data })
  } catch (error) {
    console.log(error)

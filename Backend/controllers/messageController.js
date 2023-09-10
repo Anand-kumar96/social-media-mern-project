@@ -1,39 +1,36 @@
+const { asyncHandler } = require('../middleware/asyncHandler')
 const MessageModel = require('../models/messageModel')
 
-exports.postMessage = async (req, res) => {
+exports.postMessage = asyncHandler(async (req, res, next) => {
   const { chatId, senderId, text } = req.body
   const message = new MessageModel({
     chatId,
     senderId,
     text,
   })
-  try {
+  if (message) {
     const result = await message.save()
-    res.status(200).json({
+    res.status(201).json({
       status: 'success',
       result,
     })
-  } catch (err) {
-    res.status(500).json({
-      status: 'fail',
-      message: err.message,
-    })
+  } else {
+    res.status(400)
+    next(new Error('Invalid data !!'))
   }
-}
+})
 
 //fetch message
-exports.getMessage = async (req, res) => {
+exports.getMessage = asyncHandler(async (req, res, next) => {
   const { chatId } = req.params
-  try {
-    const result = await MessageModel.find({ chatId })
+  const result = await MessageModel.find({ chatId })
+  if (result) {
     res.status(200).json({
       status: 'success',
       result,
     })
-  } catch (err) {
-    res.status(500).json({
-      status: 'fail',
-      message: err.message,
-    })
+  } else {
+    res.status(404)
+    next(new Error('Message does not exist'))
   }
-}
+})

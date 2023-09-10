@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './Post.css'
+import { format } from 'timeago.js'
 import Comment from '../../img/comment.png'
 import Share from '../../img/share.png'
 import Like from '../../img/like.png'
 import DisLike from '../../img/notlike.png'
 import { useSelector } from 'react-redux'
 import { likePost } from '../../api/postRequest'
-const Post = ({ data }) => {
+const Post = ({ data, userInfo }) => {
   const [likes, setLikes] = useState(data.likes.length) // total likes
   const { user } = useSelector((state) => state.authReducer.authData)
   const [liked, setLiked] = useState(data.likes.includes(user._id))
@@ -17,13 +18,49 @@ const Post = ({ data }) => {
   }
   return (
     <div className="post">
+      <div style={{ alignItems: 'center', display: 'flex' }}>
+        <img
+          src={
+            userInfo?.profilePicture
+              ? process.env.REACT_APP_PUBLIC_FOLDER + userInfo.profilePicture
+              : process.env.REACT_APP_PUBLIC_FOLDER + 'defaultProfile.png'
+          }
+          style={{
+            width: '40px',
+            height: '40px',
+            marginRight: '0.7rem',
+            borderRadius: '50%',
+          }}
+          alt=""
+        />
+        <div
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '3px'
+          }}
+        >
+          <span
+            style={{ fontSize: '1rem', fontWeight: '600' }}
+          >{`${userInfo?.firstname} ${userInfo?.lastname}`}</span>
+          <span style={{ color: 'var(--gray)', fontSize: '13px' }}>
+            {format(data?.createdAt)}
+          </span>
+        </div>
+      </div>
+      <div className="detail">
+        <span>
+          <b>{data.name}</b>
+        </span>
+        <span> {data.desc}</span>
+      </div>
       {data.image && process.env.REACT_APP_PUBLIC_FOLDER + data.image && (
         <img
           src={data.image && process.env.REACT_APP_PUBLIC_FOLDER + data.image}
           alt=""
         />
       )}
-
       <div className="postReact">
         <img
           src={liked ? Like : DisLike}
@@ -36,12 +73,6 @@ const Post = ({ data }) => {
       <span style={{ color: 'var(--gray)', fontSize: '14px' }}>
         {likes} likes
       </span>
-      <div className="detail">
-        <span>
-          <b>{data.name}</b>
-        </span>
-        <span> {data.desc}</span>
-      </div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 // to work with we set proxy in package.json =>
 const axios = require('axios')
-const API = axios.create({ baseURL: 'https://social-chat-app.onrender.com' })
+
+const API = axios.create({ baseURL: 'http://localhost:5000' })
 export const logIn = (formData)=> API.post('/auth/login', formData)
 export const signUp = (formData)=> API.post('/auth/register', formData)

@@ -1,19 +1,24 @@
 const UserModel = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { asyncHandler } = require('../middleware/asyncHandler')
 
 // register user
-exports.registerUser = async (req, res) => {
-  // const newUser =await UserModel.create(req.body);
-  //or
-  const { password } = req.body
+exports.registerUser = asyncHandler(async (req, res, next) => {
+  const { username, password } = req.body
+  const existingUser = await UserModel.findOne({ username })
+  if (existingUser) {
+    res.status(403)
+    next(new Error('user already exists!!'))
+  }
   // to encrypt the password
   const salt = await bcrypt.genSalt(12) //amount of hashing
   const hashPassword = await bcrypt.hash(password, salt)
   req.body.password = hashPassword
+
   const newUser = new UserModel(req.body)
-  try {
-    const user = await newUser.save()
+  const user = await newUser.save()
+  if (user) {
     //jwt token generate
     const token = jwt.sign(
       {
@@ -23,39 +28,24 @@ exports.registerUser = async (req, res) => {
       process.env.JWT_KEY,
       { expiresIn: '1h' }
     )
-    res.status(200).json({
+
+    res.status(201).json({
       status: 'success',
       token,
       user: user,
     })
-  } catch (err) {
-    res.status(500).json({
-      status: 'error',
-      message:
-        err.code === 11000 ? 'username already registered!!' : err.message,
-    })
+  } else {
+    res.status(400)
+    next(new Error('Invalid user data'))
   }
-}
+})
 
 //login user
-exports.loginUser = async (req, res) => {
+exports.loginUser = asyncHandler(async (req, res, next) => {
   const { username, password } = req.body
-  try {
-    const user = await UserModel.findOne({ username: username })
-    // validate user
-    if (!user) {
-      res.status(404).json({
-        status: 'error',
-        message: 'User does not exist',
-      })
-    }
-    const validity = await bcrypt.compare(password, user.password)
-    if (!validity) {
-      res.status(400).json({
-        status: 'success',
-        message: 'Wrong password.',
-      })
-    }
+  const user = await UserModel.findOne({ username })
+  const validity = await bcrypt.compare(password, user.password)
+  if (user && validity) {
     const token = jwt.sign(
       {
         username: user.username,
@@ -69,10 +59,8 @@ exports.loginUser = async (req, res) => {
       token,
       user,
     })
-  } catch (err) {
-    res.status(500).json({
-      status: 'error',
-      message: err.message,
-    })
+  } else {
+    res.status(401)
+    next(new Error('Invalid email or password'))
   }
-}
+})

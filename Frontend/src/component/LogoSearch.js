@@ -5,6 +5,7 @@ import { UilSearch } from '@iconscout/react-unicons'
 import { useSelector } from 'react-redux'
 import { getAllUser } from '../api/UserRequest'
 import { Link } from 'react-router-dom'
+
 const LogoSearch = () => {
   const [allUser, setAllUser] = useState([])
   const [input, setInput] = useState()
@@ -33,7 +34,9 @@ const LogoSearch = () => {
   return (
     <>
       <div className="logoSearch">
+        <Link to={'../home'}>
         <img src={Logo} alt="search logo" />
+        </Link>
         <div className="search">
           <input
             type="text"

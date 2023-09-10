@@ -29,7 +29,7 @@ const Converstation = ({ data, currentUserId, online }) => {
                 : process.env.REACT_APP_PUBLIC_FOLDER + 'defaultProfile.png'
             }
             className="followerImage"
-            style={{ width: '40px', height: '40px', marginRight: '3px' }}
+            style={{ width: '40px', height: '40px', marginRight: '3px',borderRadius:'50%' }}
             alt=""
           />
           <div className="name" style={{ fontSize: '0.8rem' }}>

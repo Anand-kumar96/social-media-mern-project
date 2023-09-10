@@ -6,7 +6,7 @@ import { logIn, signUp } from '../../actions/AuthAction'
 
 const Auth = () => {
   const dispatch = useDispatch()
-  const loading = useSelector((state) => state.authReducer.loading)
+  const {loading} = useSelector((state) => state.authReducer.loading)
   const [confirmPass, setConfirmPass] = useState(true)
   const [isSignUp, setIsSignUp] = useState(false)
   const [data, setData] = useState({
@@ -55,7 +55,7 @@ const Auth = () => {
       </div>
       {/* Right side------- */}
       <div className="auth-right">
-        <form className="infoForm authForm" onSubmit={handleSubmit}>
+        <form className={`infoForm authForm ${isSignUp ? '' :'login-style'}`} onSubmit={handleSubmit}>
           <h3>{isSignUp ? 'Sign up' : 'Log in'}</h3>
           {isSignUp && (
             <div>

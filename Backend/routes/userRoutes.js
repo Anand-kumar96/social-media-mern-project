@@ -7,7 +7,7 @@ const {
   unFollowUser,
   getAllUser,
 } = require('../controllers/userController')
-const { authMiddleWare } = require('../middlwware/authMiddleware')
+const { authMiddleWare } = require('../middleware/authMiddleware')
 
 const router = express.Router()
 router.get('/',getAllUser)

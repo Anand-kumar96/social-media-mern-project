@@ -43,7 +43,7 @@ const PostShare = ({ setModalOpen }) => {
       try {
           if (desc.current.value !== '' || image) {
             dispatch(uploadImage(data))
-            console.log('image uploaded')
+            // console.log('image uploaded')
           }
       } catch (err) {
         console.log(err)
@@ -51,7 +51,7 @@ const PostShare = ({ setModalOpen }) => {
     }
    if ( desc.current.value !== '' || image) {
      dispatch(uploadPost(newPost)) // newPost is main post
-      console.log('post uploaded')
+      // console.log('post uploaded')
    }
     resetUpload() // after uploading desc and image clear
     setModalOpen && setModalOpen(false)

@@ -14,7 +14,7 @@ const FollowersCard = () => {
      const fetchAllUser = async () => {
        const { data } = await getAllUser()
        const users = data.users.filter((eachUser) => eachUser._id !== user._id)
-       setPersons(users)
+       setPersons(users) 
      }
      fetchAllUser()
    }, [user])
