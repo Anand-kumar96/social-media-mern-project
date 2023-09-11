@@ -97,11 +97,12 @@ const ChatBox = ({ chat, currentUser, setSendMessage, recieveMessage }) => {
                     style={{
                       width: '40px',
                       height: '40px',
-                      marginRight: '3px',
+                      margin: '0px 3px',
+                      borderRadius:'50%'
                     }}
                     alt=""
                   />
-                  <div className="name" style={{ fontSize: '0.8rem' }}>
+                  <div className="name" style={{ fontSize: '0.8rem', color:'white' }}>
                     <span>{`${userData?.firstname} ${userData?.lastname}`}</span>
                   </div>
                 </div>

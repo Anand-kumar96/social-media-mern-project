@@ -95,3 +95,6 @@
     margin-bottom: 1rem;
     cursor: pointer;
 }
+.coverHeight > img:nth-of-type(1){
+    height: 16rem;
+}

@@ -25,7 +25,7 @@ const ProfileCard = ({ location, show }) => {
 
   return (
     <div className="profileCard">
-      <div className="profileImage">
+      <div className={`profileImage ${location ? 'coverHeight' : ''}`}>
         <img
           src={
             searchUser

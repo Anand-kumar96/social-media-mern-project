@@ -35,7 +35,6 @@ const Post = ({ data, userInfo }) => {
         />
         <div
           style={{
-            alignItems: 'center',
             display: 'flex',
             flexDirection: 'column',
             gap: '3px'
