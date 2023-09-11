@@ -1,6 +1,6 @@
 const io = require('socket.io')(8800, {
   cors: {
-    origin: 'social-media-by-ananad.netlify.app',
+    origin: 'https://social-media-by-ananad.netlify.app/',
   },
 })
 
