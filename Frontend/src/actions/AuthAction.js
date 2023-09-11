@@ -10,6 +10,7 @@ export const logIn = (formData) => async(dispatch)=>{
         dispatch({type: 'AUTH_SUCCESS', data: data})
     } catch(err) {
         errorNotification(err?.response?.data?.message, err)
+        console.log(err)
         dispatch({type: 'AUTH_FAIL'})
 }
 }

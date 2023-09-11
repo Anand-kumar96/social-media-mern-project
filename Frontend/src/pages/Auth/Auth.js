@@ -7,7 +7,6 @@ import { logIn, signUp } from '../../actions/AuthAction'
 const Auth = () => {
   const dispatch = useDispatch()
   const {loading} = useSelector((state) => state.authReducer.loading)
-  const [confirmPass, setConfirmPass] = useState(true)
   const [isSignUp, setIsSignUp] = useState(false)
   const [data, setData] = useState({
     firstname: '',
@@ -22,7 +21,6 @@ const Auth = () => {
   }
   // resetting the input
   const resetForm = () => {
-    setConfirmPass(true)
     setData({
       firstname: '',
       lastname: '',
@@ -35,9 +33,8 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (isSignUp) {
-      data.password === data.confirmPass
-        ? dispatch(signUp(data))
-        : setConfirmPass(false)
+      data.password === data.confirmPass && dispatch(signUp(data))
+    
     } else {
       dispatch(logIn(data))
     }
@@ -55,7 +52,10 @@ const Auth = () => {
       </div>
       {/* Right side------- */}
       <div className="auth-right">
-        <form className={`infoForm authForm ${isSignUp ? '' :'login-style'}`} onSubmit={handleSubmit}>
+        <form
+          className={`infoForm authForm ${isSignUp ? '' : 'login-style'}`}
+          onSubmit={handleSubmit}
+        >
           <h3>{isSignUp ? 'Sign up' : 'Log in'}</h3>
           {isSignUp && (
             <div>
@@ -117,13 +117,13 @@ const Auth = () => {
               />
             )}
           </div>
-          {!confirmPass && (
+          {isSignUp && !(data.password === data.confirmPass) && (
             <span
               style={{
                 color: 'red',
                 fontSize: '14px',
                 alignSelf: 'flex-end',
-                marginRight: '5px',
+                margin:'-5px 2px -24px 0px'
               }}
             >
               * Confirm password is not same
@@ -146,7 +146,9 @@ const Auth = () => {
             className="button infoButton"
             type="submit"
             style={{ marginTop: '-1rem' }}
-            disabled={loading}
+            disabled={
+              loading || (isSignUp && data.password !== data.confirmPass)
+            }
           >
             {loading ? 'Loading...' : isSignUp ? 'Sign up' : 'Log In'}
           </button>

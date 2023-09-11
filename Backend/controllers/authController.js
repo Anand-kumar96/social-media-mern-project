@@ -44,6 +44,10 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
 exports.loginUser = asyncHandler(async (req, res, next) => {
   const { username, password } = req.body
   const user = await UserModel.findOne({ username })
+  if(!user){
+     res.status(401)
+     next(new Error('Invalid email or password'))
+  }
   const validity = await bcrypt.compare(password, user.password)
   if (user && validity) {
     const token = jwt.sign(
