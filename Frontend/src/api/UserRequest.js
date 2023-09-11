@@ -1,6 +1,8 @@
 const axios = require('axios')
 
-const API = axios.create({ baseURL: 'https://social-chat-app.onrender.com' })
+const API = axios.create({
+  baseURL: 'https://social-media-app-ckll.onrender.com',
+})
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
     req.headers.Authorization = `Bearer ${

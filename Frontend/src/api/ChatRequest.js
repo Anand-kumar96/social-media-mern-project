@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'https://social-chat-app.onrender.com' })
+const API = axios.create({
+  baseURL: 'https://social-media-app-ckll.onrender.com',
+})
 export const userChats = (id) => {
   return API.get(`/chat/${id}`)
 }
