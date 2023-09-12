@@ -17,6 +17,7 @@ const Chat = () => {
   const [sendMessage, setSendMessage] = useState(null)
   const [recieveMessage, setRecieveMessage] = useState(null)
 
+  const showChatUser = useSelector((state) => state.profileReducer)
   // Get the chat in chat section
   useEffect(() => {
     const getChats = async () => {
@@ -61,7 +62,7 @@ const Chat = () => {
     return online ? true : false
   }
   return (
-    <div className="Chat">
+    <div className={`Chat ${showChatUser ? 'Chat-responsive' : 'Chats'}`}>
       {/* Left Side */}
       <div className="Left-side-chat">
         <LogoSearch />
@@ -82,7 +83,8 @@ const Chat = () => {
       </div>
       {/* Right Side */}
       <div className="Right-side-chat">
-        <div className='nav-responsive'
+        <div
+          className="nav-responsive"
           style={{
             width: '20rem',
             alignSelf: 'flex-end',

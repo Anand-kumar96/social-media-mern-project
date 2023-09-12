@@ -40,23 +40,17 @@ const LogoSearch = () => {
   return (
     <>
       <div className="logoSearch">
-        <div className="profile-logo">
-          {!showProfile && (
-            <img
-              src={profileLogo}
-              alt="profile logo"
-              onClick={() => {
-                dispatch(showUserProfile())
-              }}
-            />
-          )}
+        <div
+          className="profile-logo"
+          onClick={() => {
+            dispatch(showUserProfile())
+          }}
+        >
+          {!showProfile && <img src={profileLogo} alt="profile logo" />}
           {showProfile && (
             <img
               src={crossLogo}
               alt="profile logo"
-              onClick={() => {
-                dispatch(showUserProfile())
-              }}
             />
           )}
         </div>

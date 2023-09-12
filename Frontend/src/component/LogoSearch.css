@@ -62,6 +62,8 @@
   width: 2rem;
   cursor: pointer;
   margin-right: 6vw;
+  position: relative;
+  z-index: 5;
 }
 @media only screen and (max-width: 1200px) {
   .messageIcon {
@@ -135,5 +137,10 @@
   .searchLogo > img {
     height: 2rem;
     width: 2rem;
+    position: relative;
+    z-index: 5;
   }
+  .profile-logo > img {
+  margin-right: 1vw;
+}
 }

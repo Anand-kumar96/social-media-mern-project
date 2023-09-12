@@ -117,23 +117,25 @@
   .conversation {
     padding: 8px 2px;
   }
-  .followerImage{
+  .followerImage {
     align-items: center;
-  width: 40px;
-  height: 40px;
-  margin-right:2px;
-  border-radius: 50%;
-}
+    width: 40px;
+    height: 40px;
+    margin-right: 2px;
+    border-radius: 50%;
+  }
 }
 @media screen and (max-width: 600px) {
-   .conversation {
+  /* .Chat-container {
+    display: none;
+  } */
+  .conversation {
     padding: 4px 2px;
   }
-   .Chat-container {
-    gap: 0.5rem;
-    padding: 1rem 0.4rem;
+  .Chats {
+    grid-template-columns: 0rem auto;
   }
-  .Chat {
+  .Chat-responsive {
     grid-template-columns: 9rem auto;
   }
   .chatbox-empty-message {
@@ -142,9 +144,9 @@
   .Chat-container > h2 {
     font-size: 16px;
   }
-    .Chat-container {
+  .Chat-container {
     gap: 1rem;
     border-radius: 0.5rem;
-    padding: 1rem 0.4rem;
+    padding: 1rem 0rem;
   }
 }

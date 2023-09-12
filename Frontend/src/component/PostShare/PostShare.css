@@ -91,29 +91,35 @@
     padding: 0.3rem 0.4rem;
   }
   .postShare {
-  gap: 0.5rem;
-  padding: 1rem 0.5rem;
-}
-.postShare > img {
-  width: 2.5rem;
-  height: 2.5rem;
-}
-.postShare > div {
-  width: 90%;
-  gap: 1rem;
-}
-.postShare > div > input {
-  padding: 8px;
-  font-size: 13px;
-}
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+  .postShare > img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .postShare > div {
+    width: 90%;
+    gap: 1rem;
+  }
+  .postShare > div > input {
+    padding: 8px;
+    font-size: 13px;
+  }
 }
 @media only screen and (max-width: 576px) {
-    .option {
+  .option {
     padding: 2px 2px;
     font-size: 10px;
   }
   .ps {
     padding: 0.3rem 0.4rem;
     font-size: 10px;
+  }
+  .postOptions > .option:nth-child(4) {
+    display: none;
+  }
+  .postOptions {
+    justify-content: space-between;
   }
 }
