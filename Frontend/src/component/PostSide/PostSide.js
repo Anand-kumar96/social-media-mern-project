@@ -11,7 +11,7 @@ const PostSide = ({ show }) => {
   return (
     <div className="postSide">
       <div className="logo-responsive">
-        <LogoSearch />
+       {!show && <LogoSearch />}
       </div>
       {profileShow && (
         <div className='profile-responsive'>

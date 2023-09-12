@@ -6,7 +6,7 @@ import FollowersCard from './FollowersCard'
 const ProfileSide = ({show}) => {
   return (
     <div className="profileSide">
-      {!show && <LogoSearch />}
+      {<LogoSearch />}
       <ProfileCard show={show}/>
       <FollowersCard />
     </div>
