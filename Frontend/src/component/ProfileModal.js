@@ -70,7 +70,7 @@ function ProfileModal({ modalOpen, setModalOpen, data }) {
       }
       overlayOpacity={0.55}
       overlayBlur={3}
-      size="40%"
+      // size="40%"
       opened={modalOpen}
       onClose={() => setModalOpen(false)}
     >
@@ -138,10 +138,10 @@ function ProfileModal({ modalOpen, setModalOpen, data }) {
             value={formData.relationShip}
           />
         </div>
-        <div>
-          Profile image
+        <div className='fileShare'>
+          Profile
           <input type="file" name="profileImage" onChange={handleImageChange} />
-          Cover image
+          Cover
           <input type="file" name="coverImage" onChange={handleImageChange} />
         </div>
         <button

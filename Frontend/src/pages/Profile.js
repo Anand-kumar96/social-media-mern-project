@@ -9,10 +9,12 @@ const Profile = () => {
     <div className="profile">
       <ProfileLeft />
       <div className="profile-center">
-        <ProfileCard location="profilePage" />
+        <div className="profilePage">
+          <ProfileCard location="profilePage" />
         <PostSide />
+        </div>
       </div>
-      <RightSide />
+     <div className='right-Side'> <RightSide /></div>
     </div>
   )
 }

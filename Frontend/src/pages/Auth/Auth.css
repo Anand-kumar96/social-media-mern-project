@@ -66,7 +66,13 @@
   height: 2rem;
   width: 90%;
 }
-
+.fileShare > input {
+  margin-left: -0.8rem;
+  width: 33%;
+}
+.fileShare {
+  font-size: 14px;
+}
 .infoButton {
   width: 6rem;
   height: 2.2rem;
@@ -77,4 +83,98 @@
   width: 100%;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .Auth {
+    gap: 2rem;
+  }
+  .auth-left > img {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  .webName > h1 {
+    font-size: 2rem;
+  }
+
+  .auth-right {
+    border-radius: 0.8rem;
+    padding: 1rem;
+  }
+
+  .infoForm {
+    gap: 1.5rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .Auth {
+    gap: 1rem;
+  }
+  .auth-left {
+    gap: 0.5rem;
+  }
+  .auth-left > img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .webName > h1 {
+    font-size: 1.5rem;
+  }
+  .webName > h6 {
+    font-size: 0.8rem;
+  }
+  .infoForm {
+    gap: 1.2rem;
+  }
+  .infoInput {
+    border-radius: 5px;
+    padding: 12px 4px;
+  }
+  .webName {
+    margin-right: -0.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Auth {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .auth-left {
+    gap: 0.8rem;
+  }
+  .auth-left > img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .webName > h1 {
+    font-size: 1.5rem;
+  }
+  .webName > h6 {
+    margin-top: -0.8rem;
+    font-size: 0.8rem;
+  }
+   .auth-right {
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+  }
+  .infoInput {
+    border-radius: 5px;
+    padding: 10px 3px;
+  }
+  .webName {
+    margin-right: -0.5rem;
+  }
+  .fileShare > input {
+    margin-left: -0.8rem;
+    width: 30%;
+  }
+  .infoForm > div {
+    display: flex;
+    gap: 1rem;
+    height: 2rem;
+    width: 100%;
+  }
+  .infoForm {
+    gap: 1rem;
+  }
 }

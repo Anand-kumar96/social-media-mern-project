@@ -5,6 +5,8 @@
   gap: 1rem;
   margin-left: 5px;
   margin-right: 5px;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .Left-side-chat {

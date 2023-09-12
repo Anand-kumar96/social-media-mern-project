@@ -108,7 +108,7 @@ const ProfileCard = ({ location, show }) => {
           ' '
         ) : (
           <>
-            <span>
+            <span className='my-Profile'>
               <Link
                 style={{ textDecoration: 'none', color: 'inherit' }}
                 to={`/profile/${user._id}`}
