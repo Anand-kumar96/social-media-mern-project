@@ -1,32 +1,38 @@
-.rightSide{
-    display: flex;
-    flex-direction: column;
-    gap:2rem;
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
-.navIconsRight{
-    background-color: var(--cardColor);
-    border-radius: 1rem;
+.navIconsRight {
+  background-color: var(--cardColor);
+  border-radius: 1rem;
 }
-.navIcons{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem;
+.navIcons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
 }
 
-.navIcons>img{
-    width: 1.5rem;
-    height: 1.5rem;
+.navIcons > img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
-.navIcons>a>img {
-    width: 1.5rem;
-    height: 1.5rem;
+.navIcons > a > img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
-.navIcons img:hover,.setting:hover{
-    cursor: pointer;
+.navIcons img:hover,
+.setting:hover {
+  cursor: pointer;
 }
 .ts {
-    height: 2.5rem;
-    width: 80%;
-    align-self: center;
+  height: 2.5rem;
+  width: 80%;
+  align-self: center;
+}
+@media only screen and (max-width: 1200px) {
+  .rightSide {
+    display: none;
+  }
 }

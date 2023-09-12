@@ -1,45 +1,69 @@
-.followersCard{
-    width: 100%;
-    border-radius: 0.5rem;
-    gap:0.4rem;
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
+.followersCard {
+  width: 100%;
+  border-radius: 0.5rem;
+  gap: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
 }
-.followersCard >h3{
-    align-self: center;
-    margin: -1px 0px;
+.followersCard > h3 {
+  align-self: center;
+  margin: 8px 0px 0px 0px;
 }
-.follower{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+.follower {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.follower>div{
-    display: flex;
-    gap: 8px;
+.follower > div {
+  display: flex;
+  gap: 8px;
 }
-.followerImg{
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+.followerImg {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
 }
-.name{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
-.name >span:nth-child(1){
-    font-weight: bold;
+.name > span:nth-child(1) {
+  font-weight: bold;
 }
-.fc-button{
-    padding: 0.4rem 1rem;
+.fc-button {
+  padding: 0.4rem 1rem;
 }
-.unfollowButton{
-    color: var(--orange);
-    border: 2px solid var(--orange);
-    cursor: pointer;
-    background: transparent;
+.unfollowButton {
+  color: var(--orange);
+  border: 2px solid var(--orange);
+  cursor: pointer;
+  background: transparent;
+}
+
+@media only screen and (max-width: 800px) {
+  .follower > div {
+    gap: 6px;
+  }
+  .followerImg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .fc-button {
+    padding: 0.4rem 0.5rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .follower > div {
+    gap: 10px 8px;
+  }
+    .followerImg {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+  .fc-button {
+    padding: 0.3rem 0.4rem;
+  }
 }

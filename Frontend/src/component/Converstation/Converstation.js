@@ -21,7 +21,7 @@ const Converstation = ({ data, currentUserId, online }) => {
     <>
       <div className="follower conversation">
         <div>
-          <div className={online ?'online-dot': ''}></div>
+          <div className={online ? 'online-dot' : ''}></div>
           <img
             src={
               userData?.profilePicture
@@ -29,16 +29,15 @@ const Converstation = ({ data, currentUserId, online }) => {
                 : process.env.REACT_APP_PUBLIC_FOLDER + 'defaultProfile.png'
             }
             className="followerImage"
-            style={{ width: '40px', height: '40px', marginRight: '3px',borderRadius:'50%' }}
             alt=""
           />
           <div className="name" style={{ fontSize: '0.8rem' }}>
             <span>{`${userData?.firstname} ${userData?.lastname}`}</span>
-            <span >{online ? 'Online' : 'Offline'}</span>
+            <span>{online ? 'Online' : 'Offline'}</span>
           </div>
         </div>
       </div>
-      <hr style={{ width: '90%', border: '0.2px solid #ececec' }} />
+      <hr style={{ width: '90%', border: '1px solid #rgb(21 20 20 / 26)' }} />
     </>
   )
 }

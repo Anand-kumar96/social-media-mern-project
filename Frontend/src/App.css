@@ -55,3 +55,20 @@
   width:18rem;
   padding: 2rem 2.1rem;
 }
+
+@media only screen and (max-width: 1200px) {
+  .Home {
+    grid-template-columns: 20rem auto;
+  }
+  
+}
+@media only screen and (max-width: 800px) {
+  .Home {
+    grid-template-columns: 16rem auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Home {
+    grid-template-columns:0 auto;
+  }
+}

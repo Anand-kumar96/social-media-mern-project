@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import './ProfileCard.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import { getUser } from '../api/UserRequest'
+import { logOut } from '../actions/AuthAction'
 const ProfileCard = ({ location, show }) => {
   const params = useParams()
   const { user } = useSelector((state) => state.authReducer.authData)
   const { posts } = useSelector((state) => state.postReducer)
   const [searchUser, setSearchUser] = useState()
+  const dispatch = useDispatch()
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
   useEffect(() => {
     const getSearchUser = async () => {
@@ -22,6 +24,10 @@ const ProfileCard = ({ location, show }) => {
     }
     getSearchUser()
   }, [])
+
+  const handleLogOut = () => {
+    dispatch(logOut()) // while dispatching call the function
+  }
 
   return (
     <div className="profileCard">
@@ -101,14 +107,19 @@ const ProfileCard = ({ location, show }) => {
         location === 'profilePage' ? (
           ' '
         ) : (
-          <span>
-            <Link
-              style={{ textDecoration: 'none', color: 'inherit' }}
-              to={`/profile/${user._id}`}
-            >
-              My Profile
-            </Link>
-          </span>
+          <>
+            <span>
+              <Link
+                style={{ textDecoration: 'none', color: 'inherit' }}
+                to={`/profile/${user._id}`}
+              >
+                My Profile
+              </Link>
+            </span>
+            <span className="responsive-logout" onClick={handleLogOut}>
+              Log out
+            </span>
+          </>
         )
       ) : (
         ''

@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import './LogoSearch.css'
+import Comment from '../img/comment.png'
 import Logo from '../img/logo.png'
+import profileLogo from '../img/profile.png'
+import crossLogo from '../img/Cross.png'
 import { UilSearch } from '@iconscout/react-unicons'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getAllUser } from '../api/UserRequest'
 import { Link } from 'react-router-dom'
+import { showUserProfile } from '../actions/showUserProfile'
 
 const LogoSearch = () => {
   const [allUser, setAllUser] = useState([])
   const [input, setInput] = useState()
   const [filterUser, setFilterUser] = useState([])
   const { user } = useSelector((state) => state.authReducer.authData)
+  const showProfile = useSelector((state) => state.profileReducer)
+  const dispatch = useDispatch()
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER
   useEffect(() => {
     const fetchAllUser = async () => {
@@ -34,8 +40,28 @@ const LogoSearch = () => {
   return (
     <>
       <div className="logoSearch">
-        <Link to={'../home'}>
-        <img src={Logo} alt="search logo" />
+        <div className="profile-logo">
+          {!showProfile && (
+            <img
+              src={profileLogo}
+              alt="profile logo"
+              onClick={() => {
+                dispatch(showUserProfile())
+              }}
+            />
+          )}
+          {showProfile && (
+            <img
+              src={crossLogo}
+              alt="profile logo"
+              onClick={() => {
+                dispatch(showUserProfile())
+              }}
+            />
+          )}
+        </div>
+        <Link to={'../home'} className="searchLogo">
+          <img src={Logo} alt="search logo" />
         </Link>
         <div className="search">
           <input
@@ -48,6 +74,9 @@ const LogoSearch = () => {
             <UilSearch />
           </div>
         </div>
+        <Link to={'../chat'} className="messageIcon">
+          <img src={Comment} alt="" />
+        </Link>
       </div>
       <div className="users-search">
         {input &&
@@ -57,7 +86,7 @@ const LogoSearch = () => {
               style={{ textDecoration: 'none' }}
               key={index}
             >
-              <div className="follower all-users">
+              <div className="follower all-users all-users-responsive">
                 <div>
                   <img
                     src={

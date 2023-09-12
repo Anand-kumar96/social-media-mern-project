@@ -67,12 +67,84 @@
   font-size: 22px;
   color: white;
 }
-
-@media screen and (max-width: 768px) {
-  .Chat {
-    grid-template-columns: 12% auto;
-  }
-  .follower.conversation > div > .name {
+.followerImage {
+  width: 40px;
+  height: 40px;
+  margin-right: 3px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 1200px) {
+  .nav-responsive {
     display: none;
+  }
+  .Chat {
+    grid-template-columns: 18rem auto;
+    gap: 0.4rem;
+  }
+  .chatbox-empty-message {
+    font-size: 18px;
+  }
+  .Chat-container {
+    gap: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .conversation > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .conversation {
+    border-radius: 0.4rem;
+    padding: 3px 3px;
+    margin-top: -25px;
+  }
+  .Chat-container {
+    gap: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  .Chat {
+    grid-template-columns: 12rem auto;
+  }
+  .chatbox-empty-message {
+    font-size: 14px;
+  }
+  .Chat-container > h2 {
+    font-size: 18px;
+  }
+  .conversation {
+    padding: 8px 2px;
+  }
+  .followerImage{
+    align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right:2px;
+  border-radius: 50%;
+}
+}
+@media screen and (max-width: 600px) {
+   .conversation {
+    padding: 4px 2px;
+  }
+   .Chat-container {
+    gap: 0.5rem;
+    padding: 1rem 0.4rem;
+  }
+  .Chat {
+    grid-template-columns: 9rem auto;
+  }
+  .chatbox-empty-message {
+    font-size: 12px;
+  }
+  .Chat-container > h2 {
+    font-size: 16px;
+  }
+    .Chat-container {
+    gap: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem 0.4rem;
   }
 }

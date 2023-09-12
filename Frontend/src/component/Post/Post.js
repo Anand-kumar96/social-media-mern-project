@@ -40,10 +40,9 @@ const Post = ({ data, userInfo }) => {
             gap: '3px'
           }}
         >
-          <span
-            style={{ fontSize: '1rem', fontWeight: '600' }}
+          <span className='post-user'
           >{`${userInfo?.firstname} ${userInfo?.lastname}`}</span>
-          <span style={{ color: 'var(--gray)', fontSize: '13px' }}>
+          <span className='post-createdAt'>
             {format(data?.createdAt)}
           </span>
         </div>

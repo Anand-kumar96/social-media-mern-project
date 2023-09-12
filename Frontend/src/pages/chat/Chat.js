@@ -82,7 +82,7 @@ const Chat = () => {
       </div>
       {/* Right Side */}
       <div className="Right-side-chat">
-        <div
+        <div className='nav-responsive'
           style={{
             width: '20rem',
             alignSelf: 'flex-end',
