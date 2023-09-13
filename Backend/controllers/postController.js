@@ -124,6 +124,7 @@ exports.getTimeLinePosts = asyncHandler(async (req, res, next) => {
       .concat(followingPosts[0].followingPosts)
       .sort((a, b) => b.createdAt - a.createdAt)
     res.status(200).json({
+      totalPosts:allPosts.length,
       status: 'success',
       posts: allPosts,
     })
