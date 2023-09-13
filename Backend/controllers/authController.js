@@ -28,7 +28,6 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
       process.env.JWT_KEY,
       { expiresIn: '1h' }
     )
-    res.headers('jwt', token)
     res.status(201).json({
       status: 'success',
       token,
@@ -58,7 +57,6 @@ exports.loginUser = asyncHandler(async (req, res, next) => {
       process.env.JWT_KEY,
       { expiresIn: '1h' }
     )
-    res.headers('jwt', token)
     res.status(200).json({
       status: 'success',
       token,
