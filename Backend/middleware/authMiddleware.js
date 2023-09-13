@@ -5,8 +5,7 @@ dotenv.config()
 const secret = process.env.JWT_KEY
 
 exports.authMiddleWare = asyncHandler(async (req, res, next) => {
-  if(req.headers.Authorization){
-  const token = req.headers.Authorization.split(' ')[1]
+  const token = req.headers.authorization.split(' ')[1]
   console.log(token)
   if (token) {
     const decoded = jwt.verify(token, secret)
@@ -16,7 +15,4 @@ exports.authMiddleWare = asyncHandler(async (req, res, next) => {
   } else {
     next(new Error('You are not authorized for this request!!', 400))
   }
-}else{
-   next(new Error('You are not logged In', 400))
-}
 })

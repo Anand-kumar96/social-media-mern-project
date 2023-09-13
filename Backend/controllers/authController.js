@@ -28,7 +28,7 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
       process.env.JWT_KEY,
       { expiresIn: '1h' }
     )
-
+    res.headers('jwt', token)
     res.status(201).json({
       status: 'success',
       token,
@@ -44,9 +44,9 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
 exports.loginUser = asyncHandler(async (req, res, next) => {
   const { username, password } = req.body
   const user = await UserModel.findOne({ username })
-  if(!user){
-     res.status(401)
-     next(new Error('Invalid email or password'))
+  if (!user) {
+    res.status(401)
+    next(new Error('Invalid email or password'))
   }
   const validity = await bcrypt.compare(password, user.password)
   if (user && validity) {
@@ -58,6 +58,7 @@ exports.loginUser = asyncHandler(async (req, res, next) => {
       process.env.JWT_KEY,
       { expiresIn: '1h' }
     )
+    res.headers('jwt', token)
     res.status(200).json({
       status: 'success',
       token,
