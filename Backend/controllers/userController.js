@@ -16,6 +16,7 @@ exports.getAllUser = asyncHandler(async (req, res, next) => {
     return otherDetails
   })
   res.status(200).json({
+    totalUsers:allUsers.length,
     status: 'success',
     users: allUsers,
   })
@@ -68,6 +69,7 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
 
 // delete user
 exports.deleteUser = asyncHandler(async (req, res, next) => {
+  console.log(req.body)
   const id = req.params.id
   const { currentUserId, currentUserAdmin } = req.body
   if (id === currentUserId || currentUserAdmin) {
@@ -86,7 +88,6 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
 exports.followUser = asyncHandler(async (req, res, next) => {
   const id = req.params.id
   const { _id: currentUserId } = req.body
-  // _id assigned as currentUserId
   if (id === currentUserId) {
     res.status(403)
     next(new Error('Action forbidden'))
