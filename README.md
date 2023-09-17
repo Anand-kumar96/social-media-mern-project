@@ -1,14 +1,14 @@
 <h1 align="center">
   <br>
-  <a href="https://natours-9d20.onrender.com/"><img src="https://github.com/Anand-kumar96/Natours-app/blob/main/public/img/logo-green-round.png" alt="Natours" width="200"></a>
+  <a href="https://social-media-by-anand.netlify.app"><img src="https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/b313c19e-98fa-4f29-a566-bdc6a9786977" alt="Natours" width="200"></a>
   <br>
-  Natours
+  Social Media App
   <br>
 </h1>
 
 #### By Anand Kumar
 
-This is an awesome tour booking site built on top of <a href="https://nodejs.org/en/" target="_blank">NodeJS</a>.
+This is an awesome Social Media App built on top of  <a href="https://react.dev/" target="_blank">React Js</a> &nbsp; <a href="https://nodejs.org/en/" target="_blank">NodeJS</a>&nbsp; <a href="https://expressjs.com/" target="_blank">Express Js</a>&nbsp; <a href="https://mongoosejs.com/" target="_blank">Mongoose</a>.
 
 ## Table of contents
 
@@ -31,7 +31,7 @@ This is an awesome tour booking site built on top of <a href="https://nodejs.org
 
 ### Demo 🚀
 
-Live demo (Feel free to visit) 👉🏻 : https://natours-9d20.onrender.com
+Live demo (Feel free to visit) 👉🏻 : https://social-media-by-anand.netlify.app/
 
 ### Description 📑
 
@@ -88,35 +88,31 @@ Live demo (Feel free to visit) 👉🏻 : https://natours-9d20.onrender.com
 
 #### Sign-up Page :
 
-![Sign-up](https://github.com/Anand-kumar96/Natours-app/assets/106487247/0fa43787-1e68-470d-ba47-7f95dfcbeb78.gif)
+![Sign-up](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/ecaf045f-b2f3-463d-9656-2d74be050922.gif)
 
 #### Sign-in Page :
 
-![Sign-in](https://github.com/Anand-kumar96/Natours-app/assets/106487247/56b52d2e-7388-4f0a-801e-9a15c95f2fc5.gif)
+![Sign-in](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/87086d42-4912-4575-a383-a4e0036fecc8.gif)
 
 #### Home Page :
 
-![Home-Page](https://github.com/Anand-kumar96/Natours-app/assets/106487247/478eb4f9-4f34-432a-9c5c-a2e5a00b127e.gif)
+![Home-Page](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/ca273e00-1f22-4bac-a404-ce9cbe69feb5.gif)
 
-#### Tour Details :
+#### Profile Details :
 
-![Tour-details](https://github.com/Anand-kumar96/Natours-app/assets/106487247/41101dca-3cd6-4ad5-a4de-018afb26db80.gif)
+![Profile](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/c5f390b2-c548-461b-ac96-61eff5d2abb8.gif)
 
-#### Payment Process :
+#### Post :
 
-![Payment-Process](https://github.com/Anand-kumar96/Natours-app/assets/106487247/95a349b1-a287-4b50-8a58-9cf78a1ff000.gif)
+![Payment-Process](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/21c6c1c3-6d8d-4e8e-8ff9-14d92f9f8dcf.gif)
 
-#### Booked Tours :
+#### Chat Page :
 
-![Booked-Tours](https://github.com/Anand-kumar96/Natours-app/assets/106487247/d7ebe727-bd26-48c6-ba18-c0fba71d17c0.gif)
+![Chat](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/41a004a6-281b-4233-93bf-3007519f1ff2.gif)
 
-#### User Profile :
+#### Log Out :
 
-![User-Profile](https://github.com/Anand-kumar96/Natours-app/assets/106487247/c548c96e-d830-480f-b2b2-bf3e24955409.gif)
-
-#### Admin Profile :
-
-![Admin-Profile](https://github.com/Anand-kumar96/Natours-app/assets/106487247/a93d72cc-96ab-4889-9661-43bb4e641764.gif)
+![Log Out](https://github.com/Anand-kumar96/social-media-mern-project/assets/106487247/fd38e613-dd0a-40a7-b3b4-23a7d1e4a302.gif)
 
 ## How To Use 🫠
 
