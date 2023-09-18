@@ -108,7 +108,7 @@ Before using the API, you need to set the environment variables in Postman depen
 - {{password}} with your user password as value.
 ```
 
-Check 👉🏻 [Social Media App API Documentation 💥💥](https://documenter.getpostman.com/view/28574510/2s9Y5Wx3dW) for more info.
+Check 👉🏻 [Social Media App API Documentation 💥💥](https://documenter.getpostman.com/view/28574510/2s9YC8uqQB) for more info.
 
 
 ## Build With 🎯
@@ -130,36 +130,18 @@ If you wish to play around with the code base in your local environment,then fol
 * Clone this repo to your local machine.
 * Using the terminal, navigate to the cloned repo.
 * Install all the necessary dependencies, as stipulated in the package.json file.
-* If you don't already have any account, set up accounts with: MONGODB, LEAFLET, STRIPE, BREAVO, and MAILTRAP. Please ensure to have at least basic knowledge of how these services work. Otherwise go through respective documentation.
+* If you don't already have any account, set up accounts with: MONGODB ATLAS, MULTER. Please ensure to have at least basic knowledge of how these services work. Otherwise go through respective documentation.
 * In your .env file, set environment variables for the following:
   - NODE_ENV = development
   - DATABASE = Your_MongoDB_database_Url
   - PASSWORD = Your_MongoDB_password
-
-  - JWT_SECRET = Your_JSON_Web_Token_Secret_Key
-  - JWT_EXPIRES_IN = 90d
-  - JWT_COOKIES_EXPIRES_IN = 90
-
-  - EMAIL_USERNAME = Your_Mailtrap_username
-  - EMAIL_PASSWORD = Your_Mailtrap_password
-  - EMAIL_HOST= Mailtrap_Host_Name(sandbox.smtp.mailtrap.io)
-  - EMAIL_PORT= Mailtrap_Email_Port
-  - EMAIL_FROM = Your_Email_Address
-
-  - BREVO_HOST = Brevo(smtp-relay.brevo.com)
-  - BREVO_PORT = Brevo_Email_Port
-  - BREVO_LOGIN = Your_Brevo_username
-  - BREVO_SMTP_PASSWORD = Your_Brevo_password
-
-  - STRIPE_SECRET_KEY = Stripe_Secret_Key
-  - STRIPE_PUBLIC_KEY = Stripe_Public_Key
-
+  - PORT = server running port for development
+  - JWT_KEY = Your_JSON_Web_Token_Secret_Key
+ for frontend
+  - REACT_APP_PUBLIC_FOLDER = path for saving images
 * Start the server.
 * Your app should be running just fine.
 ```
-
-`example.env` file :
-![Example](https://github.com/Anand-kumar96/Natours-app/assets/106487247/fa818222-488e-4848-872a-58bb8775e903.png)
 
 ## Installation 🛠
 You can fork the app or you can clone the app into your local machine. Once done, please install all the
@@ -167,12 +149,10 @@ dependencies by running below command
   ```
   $ npm install
   Set your env variables
-  $ npm run watch:js
-  $ npm run build:js
-  $ npm run dev (for development)
-  $ npm run start:prod (for production)
-  $ npm run debug (for debug)
-  $ npm start
+  $ npm run dev (for development) for backend
+  $ npm start (for production) for backend
+  $ npm start for frontend
+  $ npm start for Socket.io
   Setting up ESLint and Prettier in VS Code 👇🏻
   $ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node
   eslint-plugin-import eslint-plugin-jsx-a11y  eslint-plugin-react --save-dev
@@ -184,7 +164,7 @@ dependencies by running below command
 The website is deployed with git into <a href ="https://render.com/">Render</a>. Below are the steps taken:
 
 ```
-- create an account on render. (Ex:Natours-app)
+- create an account on render. (Ex:Social-Media)
 - create a web service and give a name
 - select github repository for your Web Service
 - build Command : npm install
@@ -192,15 +172,15 @@ The website is deployed with git into <a href ="https://render.com/">Render</a>.
 - set up Environment Variables
 - add Secret Files
 - deployed.
+for frontend, backend and Socket
 ```
 
 ## To-do 🗒
 
-* Review and rating
-  - Implement Review page so that user can review booked tours from website.
-* Booking
-  - Prevent duplicate bookings after a user has booked that exact tour 
-  - Implement favorite tours page
+* Comments
+  - Implement Comments feature so that any user can comment on post.
+* Stories
+  - Implement stories features so that user can share their story. 
 * Advanced authentication features
   - Two-factor authentication
 * And More! There's always room for improvement!
@@ -212,19 +192,19 @@ Please  feel free to share your opinion, constructive criticism, or comments abo
 ## Future Updates 🪴
 
 * Improve overall UX/UI and fix bugs
-* Implement admin remaining Page.
-* Recently Viewed Tours
+* Implement admin Page.
+* Implement feature to facilitate user to update, delete a certain post.
 * And More! There's always room for improvement!
 
 ### Useful resources 📚
 
 - [https://www.w3schools.com/](https://www.w3schools.com/) - This helped me for 
-  strengthening the fundamentals of PUG and CSS. it provides all the concept 
+  strengthening the fundamentals of React, Redux. it provides all the concept 
   from scratch.
 - [https://stackoverflow.com/](https://stackoverflow.com/) - This is an amazing 
   website for solving your doubts and finding any different approaches. I always 
   refer to it Whenever I stuck in mid of code or I found unexpected error.
-
+- I follow official documentation of package for more clarity.
 ## Author ✍️
 #### Anand Kumar
 - Linkedin - [Anand-kumar96](https://www.linkedin.com/in/anand-kumar96/)
