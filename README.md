@@ -35,7 +35,7 @@ Live demo (Feel free to visit) 👉🏻 : https://social-media-by-anand.netlify.
 
 ### Description 📑
 
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This is web based live App of Chat App. This project combines both front-end and back-end technologies to create a seamless user experience and efficient management of user-related data. This is fully Responsive Website for both Mobile and Laptop Screen. Below is a detailed description of the key features of Social Media full-stack project.
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; This is web based live App of Social Media App. This project combines both front-end and back-end technologies to create a seamless user experience and efficient management of user-related data. This is fully Responsive Website for both Mobile and Laptop Screen. Below is a detailed description of the key features of Social Media full-stack project.
 
 #### Key Features 📝
 
